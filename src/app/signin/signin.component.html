@@ -1,17 +1,20 @@
 <div class="row justify-content-md-center">
   <div class="col-md-8 col-md-offset-2 signin-box">
     <h4 class="signin-header">Sign In to Tethys</h4>
-    <form>
+    <form #signinForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="exampleInputEmail1" class="sans-text">Email address</label>
-        <input type="email" class="form-control serif-text" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+        <label for="email-input" class="sans-text">Email address</label>
+        <input type="email" class="form-control serif-text" required [(ngModel)]="user.email"
+        name="emailInput" aria-describedby="emailHelp" placeholder="Enter your email" #emailInput="ngModel">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1" class="sans-text">Password</label>
-        <input type="password" class="form-control serif-text" id="exampleInputPassword1" placeholder="Enter your password">
+        <label for="passwordInput" class="sans-text">Password</label>
+        <input type="password" class="form-control serif-text" required [(ngModel)]=user.password
+        name="passwordInput" placeholder="Enter your password">
       </div>
       <div class="form-group btn-box">
-        <button type="submit" class="btn btn-light-green btn-block">Submit</button>
+        <button type="submit" [disabled]="signinForm.form.pristine || !signinForm.form.valid"
+        class="btn btn-light-green btn-block">Submit</button>
       </div>
     </form>
   </div>
