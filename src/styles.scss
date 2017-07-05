@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+// @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Noto+Sans:400,700');
+// below is temporary as logo will be created as image and pacifico will no longer be needed
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Noto+Sans:400,700|Pacifico');
+
+$sans-font-stack: 'Noto Sans', sans-serif;
+$serif-font-stack: 'Merriweather', serif;
+$dark-green: #264653;
+$light-green: #2A9D8F;
+$off-white: #f8f8f8;
+$dark-gray: #222;
+$sandy-brown: #E76F51;
+
+body {
+  background-color: $off-white;
+  color: $dark-gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $sans-font-stack
+}
+
+p, a {
+  font-family: $serif-font-stack;
+}
+
+.sans-text {
+  font-family: $sans-font-stack;
+}
+
+.dark-green-background {
+  background-color: $dark-green;
+}
+
+.light-green-background {
+  background-color: $light-green;
+}
