@@ -30,10 +30,19 @@ p, a {
   font-family: $sans-font-stack;
 }
 
+.serif-text {
+  font-family: $serif-font-stack;
+}
+
 .dark-green-background {
   background-color: $dark-green;
 }
 
 .light-green-background {
   background-color: $light-green;
+}
+
+.btn-light-green {
+  background-color: $light-green;
+  color: $off-white;
 }
