@@ -30,4 +30,10 @@ export class AuthService {
     this.authToken = this._localStorageService.get('auth_token');
     return this.authToken;
   }
+
+  deleteToken(): void {
+    this.authToken = null;
+    this._localStorageService.remove('auth_token');
+    this.signedIn.next(false);
+  }
 }
