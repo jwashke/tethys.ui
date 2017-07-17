@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
 
 import { AuthService } from '../shared/auth.service';
 
@@ -10,10 +11,12 @@ import { AuthService } from '../shared/auth.service';
 export class SignoutComponent implements OnInit {
 
   constructor(
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
     this._authService.deleteToken();
+    this._router.navigate(['/']);
   }
 }
