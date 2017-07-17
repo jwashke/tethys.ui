@@ -29,7 +29,6 @@ export class SigninComponent implements OnInit {
   }
 
   setAuthToken(token: IAuthToken): void {
-      console.log(token);
       this._authService.setToken(token.auth_token);
   }
 
