@@ -1,6 +1,9 @@
 <div class="row justify-content-md-center">
   <div class="col-md-8 col-md-offset-2 signin-box">
     <h4 class="signin-header">Sign In to Tethys</h4>
+    <div class="error-box">
+      <h6>{{ errorMessage }}</h6>
+    </div>
     <form #signinForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email-input" class="sans-text">Email address</label>

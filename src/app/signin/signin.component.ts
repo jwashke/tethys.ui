@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { User } from '../models/';
 import { IAuthToken } from '../interfaces/';
@@ -11,7 +11,9 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
+  @ViewChild('signinForm') private signinForm;
   user: User;
+  errorMessage: string;
 
   constructor(
     private _signinService: SigninService,
@@ -25,11 +27,15 @@ export class SigninComponent implements OnInit {
   onSubmit(): void {
     this._signinService.signin(this.user)
       .subscribe(data => this.setAuthToken(data),
-         error => console.log(error));
+         error => this.handleError(error));
   }
 
   setAuthToken(token: IAuthToken): void {
       this._authService.setToken(token.auth_token);
   }
 
+  handleError(error: any): void {
+      this.errorMessage = error;
+      this.signinForm.resetForm();
+  }
 }

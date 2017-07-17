@@ -27,7 +27,6 @@ export class SigninService {
 
   private handleError(error: Response) {
     // need to log with api
-    console.error(error);
     return Observable.throw(error.json().error || 'Server error');
   }
 }
