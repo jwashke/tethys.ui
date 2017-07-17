@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { SigninComponent } from './signin.component';
 
@@ -6,7 +7,7 @@ import { SigninComponent } from './signin.component';
   declarations: [
     SigninComponent
   ],
-  imports: [],
+  imports: [ FormsModule ],
   providers: [],
 })
 export class SignInModule { }
