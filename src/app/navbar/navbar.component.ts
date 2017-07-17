@@ -11,7 +11,8 @@ export class NavbarComponent {
   signedIn: any;
 
   constructor(private _authService: AuthService) {
-    this._authService.isSignedIn
+    this.signedIn = _authService.isSignedIn();
+    this._authService.signedInObservable
       .subscribe(signedIn => this.signedIn = signedIn);
   }
 }
