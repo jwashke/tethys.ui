@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(private _http: Http) { }
 
-  login(user: IUser): Observable<any> {
+  signin(user: IUser): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
