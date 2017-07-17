@@ -9,8 +9,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { SignInModule } from './signin/signin.module';
 
-import { AuthService } from './signin/auth.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +21,7 @@ import { AuthService } from './signin/auth.service';
     FormsModule,
     HttpModule
   ],
-  providers: [
-    AuthService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../models/';
-import { AuthService } from './auth.service';
+import { SigninService, IAuthResponse } from './';
 
 @Component({
   selector: 'app-signin',
@@ -11,17 +11,20 @@ import { AuthService } from './auth.service';
 export class SigninComponent implements OnInit {
   user: User;
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _signinService: SigninService) { }
 
   ngOnInit() {
       this.user = new User();
   }
 
   onSubmit(): void {
-    console.log(this.user);
-    this._authService.login(this.user)
-      .subscribe(data => console.log(data),
+    this._signinService.signin(this.user)
+      .subscribe(data => this.setAuthToken(data),
          error => console.log(error));
+  }
+
+  setAuthToken(response: IAuthResponse): void {
+      console.log(response.auth_token);
   }
 
 }

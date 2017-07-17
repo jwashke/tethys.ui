@@ -9,20 +9,20 @@ import 'rxjs/add/observable/throw';
 
 import { IUser } from '../interfaces/';
 import { apiUrl } from '../api_environment';
+import { IAuthResponse } from './';
 
 @Injectable()
-export class AuthService {
+export class SigninService {
   private _authUrl: string = apiUrl + '/api/v1/auth'
 
   constructor(private _http: Http) { }
 
-  signin(user: IUser): Observable<any> {
+  signin(user: IUser): Observable<IAuthResponse> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
     return this._http.post(this._authUrl, { user: user }, options)
       .map((response: Response) => <any> response.json())
-      .do(data => console.log('All: ' +  JSON.stringify(data)))
       .catch(this.handleError);
   }
 
