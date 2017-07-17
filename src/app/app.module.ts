@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { SignInModule } from './signin/signin.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignInModule } from './signin/signin.module';
     AppRoutingModule,
     SignInModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    SharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
