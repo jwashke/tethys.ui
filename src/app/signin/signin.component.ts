@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router }                       from '@angular/router';
 
-import { User } from '../models/';
-import { IAuthToken } from '../interfaces/';
+import { User }          from '../models/';
+import { IAuthToken }    from '../interfaces/';
 import { SigninService } from './';
-import { AuthService } from '../shared/auth.service';
+import { AuthService }   from '../shared/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -17,7 +18,8 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private _signinService: SigninService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class SigninComponent implements OnInit {
 
   setAuthToken(token: IAuthToken): void {
       this._authService.setToken(token.auth_token);
+      this._router.navigate(['/feed']);
   }
 
   handleError(error: any): void {

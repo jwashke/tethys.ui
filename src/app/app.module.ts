@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { SignInModule } from './signin/signin.module';
 import { SignoutModule } from './signout/signout.module';
+import { FeedModule } from './feed/feed.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SignInModule,
     SignoutModule,
+    FeedModule,
     FormsModule,
     HttpModule,
     SharedModule.forRoot()
