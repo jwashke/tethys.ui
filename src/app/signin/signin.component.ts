@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../models/';
-import { SigninService, IAuthResponse } from './';
+import { IAuthToken } from '../interfaces/';
+import { SigninService } from './';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +13,10 @@ import { SigninService, IAuthResponse } from './';
 export class SigninComponent implements OnInit {
   user: User;
 
-  constructor(private _signinService: SigninService) { }
+  constructor(
+    private _signinService: SigninService,
+    private _authService: AuthService
+  ) { }
 
   ngOnInit() {
       this.user = new User();
@@ -23,8 +28,9 @@ export class SigninComponent implements OnInit {
          error => console.log(error));
   }
 
-  setAuthToken(response: IAuthResponse): void {
-      console.log(response.auth_token);
+  setAuthToken(token: IAuthToken): void {
+      console.log(token);
+      this._authService.setToken(token.auth_token);
   }
 
 }

@@ -7,9 +7,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
-import { IUser } from '../interfaces/';
+import { IUser, IAuthToken } from '../interfaces/';
 import { apiUrl } from '../api_environment';
-import { IAuthResponse } from './';
 
 @Injectable()
 export class SigninService {
@@ -17,7 +16,7 @@ export class SigninService {
 
   constructor(private _http: Http) { }
 
-  signin(user: IUser): Observable<IAuthResponse> {
+  signin(user: IUser): Observable<IAuthToken> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
