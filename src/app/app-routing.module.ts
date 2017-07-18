@@ -6,11 +6,12 @@ import { SignoutComponent } from './signout/';
 import { FeedComponent }    from './feed/';
 
 import { SignedOutGuard } from './guards/';
+import { SignedInGuard }  from './guards/';
 
 const routes: Routes = [
   { path: 'signin', component: SigninComponent, canActivate: [SignedOutGuard] },
   { path: 'signout', component: SignoutComponent },
-  { path: 'feed', component: FeedComponent },
+  { path: 'feed', component: FeedComponent, canActivate: [ SignedInGuard ] },
   { path: '',   redirectTo: '/', pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
@@ -19,6 +20,6 @@ const routes: Routes = [
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
-  providers: [ SignedOutGuard ],
+  providers: [ SignedOutGuard, SignedInGuard ],
 })
 export class AppRoutingModule { }
