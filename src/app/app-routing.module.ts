@@ -5,8 +5,10 @@ import { SigninComponent }  from './signin/';
 import { SignoutComponent } from './signout/';
 import { FeedComponent }    from './feed/';
 
+import { SignedOutGuard } from './guards/';
+
 const routes: Routes = [
-  { path: 'signin', component: SigninComponent },
+  { path: 'signin', component: SigninComponent, canActivate: [SignedOutGuard] },
   { path: 'signout', component: SignoutComponent },
   { path: 'feed', component: FeedComponent },
   { path: '',   redirectTo: '/', pathMatch: 'full' },
@@ -15,7 +17,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ],
+  providers: [ SignedOutGuard ],
 })
 export class AppRoutingModule { }
